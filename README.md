@@ -7,4 +7,4 @@ The address book captures the following information for each contact: Name, Addr
 
 ## Technical Architecture
 
-The application uses webpack for bundling all the code into one js file
+This app is created entirely from scratch and does not use any boilerplate at all. More so, it becomes easier to customise the configurations without the boilerplate code. The application uses webpack for bundling all the code into one js file
