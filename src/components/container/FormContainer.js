@@ -13,7 +13,6 @@ class FormContainer extends Component {
     this.setState({ [event.target.id]: event.target.value });
   }
   render() {
-      console.log('Input', Input);
     const { contact_name } = this.state;
     return (
       <form id="address-form">
