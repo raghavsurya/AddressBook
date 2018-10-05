@@ -13,19 +13,19 @@ describe('FormComponent', () => {
 
         it('should have the Input component in the form', () => {
             const wrapper = shallow(<FormComponent />);
-            expect(wrapper.find(Input)).toHaveLength(1);
+            expect(wrapper.find(Input).first()).toHaveLength(1);
         })
     });
     describe('Input component render', () => {
        // finding the input component inside the form and checking its props
         it('should have the id in the props', () => {
             const wrapper = shallow(<FormComponent />);
-            expect(wrapper.find(Input).prop('id')).toBe('contact_name');
+            expect(wrapper.find(Input).first().prop('id')).toBe('contact_name');
         })
 
         it('should have the handleChange in the props', () => {
             const wrapper = shallow(<FormComponent />);
-            expect(wrapper.find(Input).prop('label')).toBe('address_contact_name');
+            expect(wrapper.find(Input).first().prop('label')).toBe('address_contact_name');
         })
     });
 
@@ -34,9 +34,9 @@ describe('FormComponent', () => {
     describe('Entering a value in Input component', () => {
         it('should call the handleChange event and return the updated value', () => {
             const wrapper = mount(<FormComponent />);
-            wrapper.find(Input).instance().value = 'test';
+            wrapper.find(Input).first().instance().value = 'test';
             
-            expect(wrapper.find(Input).instance().value).toBe('test');
+            expect(wrapper.find(Input).first().instance().value).toBe('test');
         })
 
         /*To call a custom event on a component, it is necessary to have a fake event source and invoke it along with the custom event.
@@ -44,7 +44,7 @@ describe('FormComponent', () => {
         it('should call the handleChange event and update the state in the component', () => {
             const wrapper = shallow(<FormComponent />);
             const fakeCallback = { target: {id: 'contact_name' ,value: 'contact name'}};
-            wrapper.find(Input).prop('handleChange')(fakeCallback)
+            wrapper.find(Input).first().prop('handleChange')(fakeCallback)
             expect(wrapper.state('contact_name')).toBe('contact name');
         })
     });

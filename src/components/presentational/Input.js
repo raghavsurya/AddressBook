@@ -12,7 +12,7 @@ class Input extends Component {
         super(props);
     };
     render() {
-        const { label, text, type, id, value, handleChange } = this.props;
+        const { label, text, type, id, value, handleChange, errorMessage } = this.props;
             const input = (
                 <div className="form-group">
                  <label htmlFor={label}>{text}</label>   
@@ -22,6 +22,7 @@ class Input extends Component {
                         value={value}
                         onChange={handleChange}
                         required
+                        title={errorMessage}
                     />
                 </div>);
             return input;
